@@ -1,2 +1,3 @@
-david,10000
-hammy,200
+jazir,20
+david,17
+david,17

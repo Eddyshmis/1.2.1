@@ -49,8 +49,8 @@ def timer_event():
     if timer <= 0:
         display_turtle.clear()
         display_turtle.write(f"FINISHED {points}",False,"center",("Arial",20,"normal"))
-        turtle_1.onclick(None)
         display_end()
+        turtle_1.onclick(None)
 
     else:
         turtle_1.onclick(clicked_event)
@@ -77,10 +77,30 @@ def clicked_event(X,Y):
 def start_game(x,y):
     turtle_1.onclick(None)
     display_turtle.goto(-400,340)
-
     timer_event()
+
 def display_end():
-    lb.f.write(str(points))
+    display_turtle.goto(0,300)
+    display_turtle.color("lightslategray")
+    x,y = display_turtle.pos()
+    y -= 100
+
+    new_player_name = tl.textinput("ask name","type your name")
+    if new_player_name == None:
+        new_player_name = ""
+    if len(new_player_name) > 0:
+        lb.set_new_player(new_player_name,points)
+
+
+    turtle_1.goto(1000,1000)
+    lb.check_file()
+    all_info = lb.get_player_data()
+    
+    display_turtle.write("player | points",False,"center",("Arial",20,"normal"))
+    for player in all_info:
+        display_turtle.goto(x,y)
+        display_turtle.write(f"""{player}  -->  {all_info[player]}""",False,"center",("Arial",20,"normal"))
+        y -= 50
 #-----events----------------
 
 

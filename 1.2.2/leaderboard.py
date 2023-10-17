@@ -39,7 +39,7 @@ def get_player_data():
         f.seek(0)
     biggest_num = 0
     biggest_name = ""
-
+    #organize players from top to bottom
     for _ in range(len(players)):
 
         for player in players:

@@ -31,6 +31,7 @@ def get_player_data():
 
         for line in f:
             data = line.replace('\n',"").split(",")
+            
             if data[0] in players:
                 if int(data[1]) > players[data[0]]:
                     players[data[0]] = data[1]

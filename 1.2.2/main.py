@@ -97,10 +97,43 @@ def display_end():
     all_info = lb.get_player_data()
     
     display_turtle.write("player | points",False,"center",("Arial",20,"normal"))
+    amount_displayed = 0
     for player in all_info:
         display_turtle.goto(x,y)
+        amount_displayed += 1
+        display_turtle.color("blue")
+        if amount_displayed == 1:
+            display_turtle.color("yellow")
+        elif amount_displayed == 2:
+            display_turtle.color("gray")
+        elif amount_displayed == 3:
+            display_turtle.color("brown")
+        
+
+
         display_turtle.write(f"""{player}  -->  {all_info[player]}""",False,"center",("Arial",20,"normal"))
+        display_turtle.color("blue")
         y -= 50
+        
+        if amount_displayed > 5:
+            break
+    placement = 0
+    for player in all_info:
+        placement += 1
+        if new_player_name == "":
+            break
+        if player == new_player_name:
+            break
+    display_turtle.goto((display_turtle.xcor() + 250),(display_turtle.ycor() + 200))
+    if new_player_name == "":
+        display_turtle.write("NO NAME PROVIDED",False,"center",("Arial",20,"normal"))
+    elif placement < 5:
+        display_turtle.write(f"""GOOD JOB!""",False,"center",("Arial",20,"normal"))
+    else:
+        display_turtle.write(f"""LOSER""",False,"center",("Arial",20,"normal"))
+
+    
+    
 #-----events----------------
 
 
